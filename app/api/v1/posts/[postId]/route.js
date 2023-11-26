@@ -17,7 +17,7 @@ const COMMENT_SELECT_FIELDS = {
 
 // GET a specified post with Comment data, User who posted the comments, and comment likes
 export async function GET(req, { params }) {
-  const { postid } = params;
+  const { postId } = params;
 
   try {
     // get set-cookie header to add userId
@@ -28,7 +28,7 @@ export async function GET(req, { params }) {
 
     const post = await prisma.post
       .findUnique({
-        where: { id: postid },
+        where: { id: postId },
         select: {
           body: true,
           title: true,

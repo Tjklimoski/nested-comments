@@ -17,7 +17,7 @@ const COMMENT_SELECT_FIELDS = {
 // POST request to add comment on specific post
 export async function POST(req, { params }) {
   const { message, parentId } = await req.json();
-  const { postid } = params;
+  const { postId } = params;
   const userId = req.cookies.get("userId")?.value;
 
   try {
@@ -31,7 +31,7 @@ export async function POST(req, { params }) {
         message,
         userId,
         parentId,
-        postId: postid,
+        postId,
       },
     });
 
