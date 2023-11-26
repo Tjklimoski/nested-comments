@@ -10,7 +10,7 @@ export async function GET(req) {
     });
     const userId = user?.id;
 
-    if (req.cookies.get("userId") !== userId) {
+    if (req.cookies.get("userId")?.value !== userId) {
       req.cookies.set("userId", userId);
       return {
         headers: { "Set-Cookie": `userId=${userId};SameSite=Strict;Path=/` },
@@ -19,7 +19,7 @@ export async function GET(req) {
     return {};
   }
 
-  const options = await setCookies(req, res);
+  const headers = await setCookies(req, res);
 
   const posts = await prisma.post.findMany({
     select: {
@@ -28,5 +28,5 @@ export async function GET(req) {
     },
   });
 
-  return res.json(posts, { ...options });
+  return res.json(posts, { ...headers });
 }
