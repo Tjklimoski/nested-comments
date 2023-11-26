@@ -13,7 +13,7 @@ export async function GET(req) {
     if (req.cookies.get("userId") !== userId) {
       req.cookies.set("userId", userId);
       return {
-        headers: { "Set-Cookie": `userId=${userId};SameSite=Strict` },
+        headers: { "Set-Cookie": `userId=${userId};SameSite=Strict;Path=/` },
       };
     }
     return {};
