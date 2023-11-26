@@ -35,7 +35,7 @@ export async function POST(req, { params }) {
       },
     });
 
-    return res.json(post, { ...headers });
+    return res.json(comment);
   } catch (err) {
     return new res(err.message ?? "Unknown error", { status: 400 });
   }
