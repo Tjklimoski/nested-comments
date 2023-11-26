@@ -3,15 +3,19 @@ import prisma from "@/prisma/client";
 import setCookies from "@/app/util/setCookie";
 
 export async function GET(req) {
-  // get set-cookie header to add userId
-  const headers = await setCookies(req);
+  try {
+    // get set-cookie header to add userId
+    const headers = await setCookies(req);
 
-  const posts = await prisma.post.findMany({
-    select: {
-      id: true,
-      title: true,
-    },
-  });
+    const posts = await prisma.post.findMany({
+      select: {
+        id: true,
+        title: true,
+      },
+    });
 
-  return res.json(posts, { ...headers });
+    return res.json(posts, { ...headers });
+  } catch (err) {
+    return new res(err.message ?? "Unknown error", { status: 400 });
+  }
 }
