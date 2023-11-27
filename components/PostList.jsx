@@ -1,4 +1,4 @@
-import { getPosts } from "../services/posts";
+import { getPosts } from "@/util/posts";
 import Link from "next/link";
 import { useAsync } from "../hooks/useAsync";
 
