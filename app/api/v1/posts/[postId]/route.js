@@ -1,6 +1,6 @@
 import { NextResponse as res } from "next/server";
 import prisma from "@/prisma/client";
-import setCookies from "@/app/util/setCookie";
+import setCookies from "@/util/setCookie";
 
 const COMMENT_SELECT_FIELDS = {
   id: true,
