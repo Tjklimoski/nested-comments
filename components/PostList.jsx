@@ -1,3 +1,5 @@
+"use client";
+
 import { getPosts } from "@/util/posts";
 import Link from "next/link";
 import { useAsync } from "../hooks/useAsync";
