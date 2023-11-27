@@ -17,7 +17,6 @@
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
   background-color: var(--base);
   color: var(--text);
