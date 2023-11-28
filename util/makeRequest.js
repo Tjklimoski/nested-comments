@@ -3,6 +3,7 @@ import axios from "axios";
 const API_VERSION = "v1";
 
 const api = axios.create({
+  // origin defaults to window origin
   baseURL: `/api/${API_VERSION}`,
   withCredentials: true,
 });
