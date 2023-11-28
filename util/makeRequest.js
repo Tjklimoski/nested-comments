@@ -3,7 +3,7 @@ import axios from "axios";
 const API_VERSION = "v1";
 
 const api = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_ORIGIN}/api/${API_VERSION}`,
+  baseURL: `/api/${API_VERSION}`,
   withCredentials: true,
 });
 
