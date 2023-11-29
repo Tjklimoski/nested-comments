@@ -10,12 +10,18 @@ export default function CommentForm({
   const [message, setMessage] = useState(initialValue);
 
   return (
-    <form>
+    <form onSubmit={() => {}}>
       <div>
-        <textarea />
-        <button>POST</button>
+        <textarea
+          autoFocus={autoFocus}
+          value={message}
+          onChange={e => setMessage(e.target.value)}
+        />
+        <button className="btn" disabled={loading} type="submmit">
+          {loading ? "..." : "POST"}
+        </button>
       </div>
-      <div>error message</div>
+      <div>{error}</div>
     </form>
   );
 }
