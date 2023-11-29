@@ -1,6 +1,6 @@
 "use client";
 
-import Post from "@/components/Post/Post";
+import Post from "@/components/Post";
 import { usePost } from "@/contexts/PostContext";
 
 export default function PostPage() {
