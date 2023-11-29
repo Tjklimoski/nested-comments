@@ -1,4 +1,14 @@
-export default function CommentForm() {
+import { useState } from "react";
+
+export default function CommentForm({
+  loading,
+  error,
+  onSubmit,
+  autoFocus = false,
+  initialValue = "",
+}) {
+  const [message, setMessage] = useState(initialValue);
+
   return (
     <form>
       <div>
