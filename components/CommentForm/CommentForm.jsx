@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./commentForm.module.css";
 
 export default function CommentForm({
   loading,
@@ -11,17 +12,18 @@ export default function CommentForm({
 
   return (
     <form onSubmit={() => {}}>
-      <div>
+      <div className={styles.commentFormRow}>
         <textarea
           autoFocus={autoFocus}
           value={message}
           onChange={e => setMessage(e.target.value)}
+          className={styles.messageInput}
         />
         <button className="btn" disabled={loading} type="submmit">
           {loading ? "..." : "POST"}
         </button>
       </div>
-      <div>{error}</div>
+      <div className="error-msg">{error}</div>
     </form>
   );
 }
