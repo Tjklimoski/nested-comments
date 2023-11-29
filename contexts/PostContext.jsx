@@ -24,6 +24,7 @@ export function PostProvider({ children }) {
 
   const commentsByParentId = useMemo(() => {
     // create an object that will contain parentId fields, with arrays of it's children
+    // If the comment is a ROOT comment, the parenetId field will be null
     const parentGroups = {};
     comments.forEach(comment => {
       // Set the field to an empty array if it doesn't exisit
@@ -82,7 +83,15 @@ export function PostProvider({ children }) {
     });
   }
 
-  const postContextValues = { id };
+  const postContextValues = {
+    post: { id, ...post },
+    rootComments: commentsByParentId[null],
+    getReplies,
+    createLocalComment,
+    updateLocalComment,
+    deleteLocalComment,
+    toggleLocalCommentLike,
+  };
 
   return (
     <PostContext.Provider value={postContextValues}>
