@@ -10,8 +10,14 @@ export default function CommentForm({
 }) {
   const [message, setMessage] = useState(initialValue);
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    // Submit user's comment to db, if succesful clear input field
+    onSubmit(message).then(() => setMessage(""));
+  }
+
   return (
-    <form onSubmit={() => {}}>
+    <form onSubmit={handleSubmit}>
       <div className={styles.commentFormRow}>
         <textarea
           autoFocus={autoFocus}
