@@ -34,6 +34,54 @@ export function PostProvider({ children }) {
     return parentGroups;
   }, [comments]);
 
+  // get replies to a comment based on it's parentId
+  function getReplies(parentId) {
+    return commentsByParentId[parentId];
+  }
+
+  // local functions are to optomistically update UI while request is sent to server/db
+  // add a new comment to the comments array
+  function createLocalComment(comment) {
+    setComments(current => [comment, ...current]);
+  }
+
+  // update a comment in the comments array
+  function updateLocalComment(id, message) {
+    setComments(current => {
+      return current.map(comment => {
+        if (comment.id === id) return { ...comment, message };
+        return comment;
+      });
+    });
+  }
+
+  // delete a comment in the comments array
+  function deleteLocalComment(id) {
+    setComments(current => current.filter(comment => comment.id !== id));
+  }
+
+  // toggle the like on a comment in the comments array
+  function toggleLocalCommentLike(id, addLike) {
+    setComments(current => {
+      return current.map(comment => {
+        if (id !== comment.id) return comment;
+        if (addLike) {
+          return {
+            ...comment,
+            likeCount: comment.likeCount + 1,
+            likedByMe: true,
+          };
+        } else {
+          return {
+            ...comment,
+            likeCount: comment.likeCount - 1,
+            likedByMe: false,
+          };
+        }
+      });
+    });
+  }
+
   const postContextValues = { id };
 
   return (
