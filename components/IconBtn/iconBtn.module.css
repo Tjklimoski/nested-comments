@@ -1,0 +1,57 @@
+.btn {
+  --hue: 235;
+  --color: hsl(var(--hue), 100%, 67%);
+  padding: 0.5em 1em;
+  background: var(--color);
+  border: none;
+  color: white;
+  border-radius: 0.5em;
+  font-size: 0.75em;
+  cursor: pointer;
+}
+
+.btn[disabled] {
+  --color: hsl(var(--hue), 20%, 74%);
+  cursor: default;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  --color: hsl(var(--hue), 100%, 74%);
+}
+
+.btn.icon-btn {
+  background: none;
+  color: var(--color);
+  padding: 0.25em;
+  display: flex;
+  align-items: center;
+}
+
+.icon-btn:hover,
+.icon-btn:focus-visible {
+  --color: hsl(var(--hue), 100%, 74%);
+}
+
+.icon-btn-active,
+.icon-btn.danger {
+  --hue: 0;
+}
+
+.icon-btn-active {
+  position: relative;
+}
+
+/* Overlay "X" icon when button is active */
+.icon-btn-active::before {
+  content: "\00D7";
+  position: absolute;
+  font-size: 0.75em;
+  width: 1em;
+  height: 1em;
+  color: var(--text);
+  background-color: var(--color);
+  border-radius: 50%;
+  bottom: 0.1em;
+  right: 0.1em;
+}
