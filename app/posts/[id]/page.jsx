@@ -1,9 +1,15 @@
 "use client";
 
+import Post from "@/components/Post/Post";
 import { usePost } from "@/contexts/PostContext";
 
 export default function PostPage() {
   const { post } = usePost();
 
-  return <div>You&#39;re on post page {post.id}</div>;
+  return (
+    <>
+      <Post />
+      {/* CommentSection */}
+    </>
+  );
 }
