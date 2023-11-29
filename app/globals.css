@@ -40,6 +40,28 @@ button {
   font-family: inherit;
 }
 
+.btn {
+  --hue: 235;
+  --color: hsl(var(--hue), 100%, 67%);
+  padding: 0.5em 1em;
+  background: var(--color);
+  border: none;
+  color: white;
+  border-radius: 0.5em;
+  font-size: 0.75em;
+  cursor: pointer;
+}
+
+.btn[disabled] {
+  --color: hsl(var(--hue), 20%, 74%);
+  cursor: default;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  --color: hsl(var(--hue), 100%, 74%);
+}
+
 .container {
   max-width: 1200px;
   width: calc(100vw - 4rem);
