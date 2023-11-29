@@ -4,7 +4,7 @@ import styles from "./iconBtn.module.css";
 export default function IconBtn({ Icon, isActive, color, children, ...props }) {
   return (
     <button
-      className={`${styles.btn} ${styles.iconBtn} ${
+      className={`btn ${styles.iconBtn} ${
         color === "danger" ? styles.danger : ""
       } ${isActive ? styles.iconBtnActive : ""}`}
       {...props}
