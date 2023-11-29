@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo } from "react";
+import { createContext, useContext, useState, useEffect, useMemo } from "react";
 import { useParams } from "next/navigation";
 import { useAsync } from "@/hooks/useAsync";
 import { getPost } from "@/util/posts";
