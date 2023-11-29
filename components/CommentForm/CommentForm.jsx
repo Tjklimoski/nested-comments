@@ -25,7 +25,11 @@ export default function CommentForm({
           onChange={e => setMessage(e.target.value)}
           className={styles.messageInput}
         />
-        <button className="btn" disabled={loading} type="submmit">
+        <button
+          className={`btn ${styles.postBtn}`}
+          disabled={loading}
+          type="submmit"
+        >
           {loading ? "..." : "POST"}
         </button>
       </div>
