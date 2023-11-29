@@ -95,7 +95,13 @@ export function PostProvider({ children }) {
 
   return (
     <PostContext.Provider value={postContextValues}>
-      {children}
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : error ? (
+        <h1 className="error-msg">{error}</h1>
+      ) : (
+        children
+      )}
     </PostContext.Provider>
   );
 }
