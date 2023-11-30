@@ -1,0 +1,29 @@
+.comment {
+  padding: 0.5rem;
+  border: 1px solid var(--secondary);
+  border-radius: 0.5rem;
+}
+
+.comment .header {
+  color: var(--tertiary);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+  font-size: 0.75em;
+}
+
+.comment .header .name {
+  font-weight: bold;
+}
+
+.comment .message {
+  white-space: pre-wrap;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.comment .footer {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}

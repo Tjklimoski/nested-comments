@@ -10,6 +10,7 @@ import {
   deleteComment,
   toggleCommentLike,
 } from "@/util/comments";
+import styles from "./comment.module.css";
 
 // to format the date and time the post was created. undefined use's user's timezone/locale.
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
@@ -53,16 +54,16 @@ export default function Comment({ commentData }) {
   return (
     <>
       {/* Comment */}
-      <article>
-        <header>
-          <span>{user.name}</span>
+      <article className={styles.comment}>
+        <header className={styles.header}>
+          <span className={styles.name}>{user.name}</span>
           <span>{dateFormatter.format(Date.parse(createdAt))}</span>
         </header>
 
-        <div>{message}</div>
+        <div className={styles.message}>{message}</div>
         <div>commentForm for user to edit this message</div>
 
-        <footer>
+        <footer className={styles.footer}>
           {/* LIKE COMMENT */}
           <IconBtn
             onClick={onToggleCommentLike}
