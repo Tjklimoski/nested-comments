@@ -81,22 +81,26 @@ export default function Comment({ commentData }) {
             aria-label={isReplying ? "Cancel reply" : "Reply"}
           />
 
-          {/* EDIT YOUR COMMENT */}
-          <IconBtn
-            onClick={() => setIsEditing(current => !current)}
-            isActive={isEditing}
-            Icon={FaEdit}
-            aria-label={isEditing ? "Cancel edit" : "Edit"}
-          />
+          {user.id === currentUser.id && (
+            <>
+              {/* EDIT YOUR COMMENT */}
+              <IconBtn
+                onClick={() => setIsEditing(current => !current)}
+                isActive={isEditing}
+                Icon={FaEdit}
+                aria-label={isEditing ? "Cancel edit" : "Edit"}
+              />
 
-          {/* DELETE YOUR COMMENT */}
-          <IconBtn
-            onClick={onCommentDelete}
-            disabled={deleteCommentFn.loading}
-            Icon={FaTrash}
-            aria-label="Delete"
-            color="danger"
-          />
+              {/* DELETE YOUR COMMENT */}
+              <IconBtn
+                onClick={onCommentDelete}
+                disabled={deleteCommentFn.loading}
+                Icon={FaTrash}
+                aria-label="Delete"
+                color="danger"
+              />
+            </>
+          )}
         </footer>
       </article>
 
