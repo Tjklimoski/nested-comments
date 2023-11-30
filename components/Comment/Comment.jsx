@@ -44,6 +44,12 @@ export default function Comment({ commentData }) {
       .then(({ addLike }) => toggleLocalCommentLike(id, addLike));
   }
 
+  function onCommentDelete() {
+    return deleteCommentFn
+      .execute({ postId: post.id, commentId: id })
+      .then(comment => deleteLocalComment(comment.id));
+  }
+
   return (
     <>
       {/* Comment */}
@@ -69,19 +75,28 @@ export default function Comment({ commentData }) {
 
           {/* REPLY TO COMMENT */}
           <IconBtn
-            onClick={() => {
-              setIsReplying(current => !current);
-            }}
+            onClick={() => setIsReplying(current => !current)}
             isActive={isReplying}
             Icon={FaReply}
-            aria-label={isReplying ? "Cancel Reply" : "Reply"}
+            aria-label={isReplying ? "Cancel reply" : "Reply"}
           />
 
           {/* EDIT YOUR COMMENT */}
-          <IconBtn onClick={() => {}}></IconBtn>
+          <IconBtn
+            onClick={() => setIsEditing(current => !current)}
+            isActive={isEditing}
+            Icon={FaEdit}
+            aria-label={isEditing ? "Cancel edit" : "Edit"}
+          />
 
           {/* DELETE YOUR COMMENT */}
-          <IconBtn onClick={() => {}}></IconBtn>
+          <IconBtn
+            onClick={onCommentDelete}
+            disabled={deleteCommentFn.loading}
+            Icon={FaTrash}
+            aria-label="Delete"
+            color="danger"
+          />
         </footer>
       </article>
 
