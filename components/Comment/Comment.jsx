@@ -47,7 +47,19 @@ export default function Comment({ commentData }) {
         </header>
         <div>{message}</div>
         <div>comment form for user to edit this message</div>
-        <footer>Like button, reply button, edit button, delete button</footer>
+        <footer>
+          {/* LIKE COMMENT */}
+          <IconBtn></IconBtn>
+
+          {/* REPLY TO COMMENT */}
+          <IconBtn></IconBtn>
+
+          {/* EDIT YOUR COMMENT */}
+          <IconBtn></IconBtn>
+
+          {/* DELETE YOUR COMMENT */}
+          <IconBtn></IconBtn>
+        </footer>
       </article>
 
       {/* CommentForm for replying to this comment */}
