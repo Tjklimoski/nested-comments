@@ -40,10 +40,10 @@ export default function Comment({ commentData }) {
       {/* Comment */}
       <article>
         <header>
-          <span>user name</span>
-          <span>date</span>
+          <span>{user.name}</span>
+          <span>{dateFormatter.format(Date.parse(createdAt))}</span>
         </header>
-        <div>message</div>
+        <div>{message}</div>
         <div>comment form for user to edit this message</div>
         <footer>Like button, reply button, edit button, delete button</footer>
       </article>
