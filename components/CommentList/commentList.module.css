@@ -1,0 +1,7 @@
+.commentStack {
+  margin: 0.5rem 0;
+}
+
+.commentStack:last-child {
+  margin-bottom: 0;
+}
