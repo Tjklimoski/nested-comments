@@ -10,9 +10,7 @@ export default function IconBtn({ Icon, isActive, color, children, ...props }) {
       {...props}
     >
       {/* If children passed, add a margin between the icon and the children */}
-      <span className={`${children ? "mr-1" : ""}`}>
-        <Icon />
-      </span>
+      <Icon className={`${children != null ? "mr-1" : ""}`} />
       {children}
     </button>
   );
