@@ -32,8 +32,8 @@ export default function Comment({ commentData }) {
   const currentUser = useUser();
   const [isReplying, setIsReplying] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [areChildrenHidden, setAreChildrenHidden] = useState(false);
   const childComments = getReplies(id);
+  const [areChildrenHidden, setAreChildrenHidden] = useState(false);
   const createCommentFn = useAsyncFn(createComment);
   const updateCommentFn = useAsyncFn(updateComment);
   const deleteCommentFn = useAsyncFn(deleteComment);
