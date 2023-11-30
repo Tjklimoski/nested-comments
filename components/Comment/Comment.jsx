@@ -45,20 +45,29 @@ export default function Comment({ commentData }) {
           <span>{user.name}</span>
           <span>{dateFormatter.format(Date.parse(createdAt))}</span>
         </header>
+
         <div>{message}</div>
         <div>comment form for user to edit this message</div>
+
         <footer>
           {/* LIKE COMMENT */}
-          <IconBtn></IconBtn>
+          <IconBtn
+            onClick={() => {}}
+            disabled={toggleCommentLikeFn.loading}
+            Icon={likedByMe ? FaHeart : FaRegHeart}
+            aria-label={likedByMe ? "Unlike" : "Like"}
+          >
+            {likeCount}
+          </IconBtn>
 
           {/* REPLY TO COMMENT */}
-          <IconBtn></IconBtn>
+          <IconBtn onClick={() => {}}></IconBtn>
 
           {/* EDIT YOUR COMMENT */}
-          <IconBtn></IconBtn>
+          <IconBtn onClick={() => {}}></IconBtn>
 
           {/* DELETE YOUR COMMENT */}
-          <IconBtn></IconBtn>
+          <IconBtn onClick={() => {}}></IconBtn>
         </footer>
       </article>
 
