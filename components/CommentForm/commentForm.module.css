@@ -9,7 +9,7 @@
 
 .messageInput {
   flex-grow: 1;
-  resize: vertical;
+  resize: none;
   min-height: 70px;
   border-radius: 0.5em;
   padding: 0.5em;
@@ -25,7 +25,23 @@
   outline: 1px solid var(--primary_focus);
 }
 
-/* remove corner indicating resizable text area. No firefox equivalent */
-.messageInput::-webkit-resizer {
-  display: none;
+.messageInput::-webkit-scrollbar {
+  width: 4px;
+  border-radius: 100vw;
+}
+
+.messageInput::-webkit-scrollbar-track {
+  margin-block: 0.5em;
+  background-color: transparent;
+}
+
+.messageInput::-webkit-scrollbar-thumb {
+  width: 2px;
+  background: #aaa;
+  border-radius: 100vw;
+}
+
+.messageInput::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: #ddd;
 }
