@@ -21,6 +21,8 @@ export default function Comment({ commentData }) {
   const currentUser = useUser();
   const [isReplying, setIsReplying] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [areChildrenHidden, setAreChildrenHidden] = useState(false);
+  const childComments = getReplies(id);
 
   return (
     <>
