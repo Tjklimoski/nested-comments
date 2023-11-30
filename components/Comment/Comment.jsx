@@ -1,4 +1,6 @@
 import { usePost } from "@/contexts/PostContext";
+import { useUser } from "@/hooks/useUser";
+import { useState } from "react";
 
 // to format the date and time the post was created. undefined use's user's timezone/locale.
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
@@ -16,6 +18,9 @@ export default function Comment({ commentData }) {
     deleteLocalComment,
     toggleLocalCommentLike,
   } = usePost();
+  const currentUser = useUser();
+  const [isReplying, setIsReplying] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   return (
     <>
@@ -35,10 +40,10 @@ export default function Comment({ commentData }) {
 
       {/* All children comments to this comment */}
       <>
-        <div>
+        <section>
           <button>hide replies</button>
           <div>comments listed</div>
-        </div>
+        </section>
         <button>Show replies</button>
       </>
     </>
