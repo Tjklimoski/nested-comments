@@ -101,6 +101,7 @@ export default function Comment({ commentData }) {
               />
             </>
           )}
+          {deleteCommentFn.error && <div>{deleteCommentFn.error}</div>}
         </footer>
       </article>
 
