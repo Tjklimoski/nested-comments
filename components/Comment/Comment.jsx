@@ -11,6 +11,7 @@ import {
   toggleCommentLike,
 } from "@/util/comments";
 import styles from "./comment.module.css";
+import CommentForm from "../CommentForm/CommentForm";
 
 // to format the date and time the post was created. undefined use's user's timezone/locale.
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
@@ -51,6 +52,15 @@ export default function Comment({ commentData }) {
       .then(comment => deleteLocalComment(comment.id));
   }
 
+  function onCommentUpdate(message) {
+    return updateCommentFn
+      .execute({ postId: post.id, message, commentId: id })
+      .then(comment => {
+        setIsEditing(false);
+        updateLocalComment(id, comment.message);
+      });
+  }
+
   return (
     <>
       {/* Comment */}
@@ -60,8 +70,18 @@ export default function Comment({ commentData }) {
           <span>{dateFormatter.format(Date.parse(createdAt))}</span>
         </header>
 
-        <div className={styles.message}>{message}</div>
-        <div>commentForm for user to edit this message</div>
+        {/* Show edit form or comment message depending on isEditing state */}
+        {isEditing ? (
+          <CommentForm
+            loading={updateCommentFn.loading}
+            error={updateCommentFn.error}
+            onSubmit={onCommentUpdate}
+            autoFocus
+            initialValue={message}
+          />
+        ) : (
+          <div className={styles.message}>{message}</div>
+        )}
 
         <footer className={styles.footer}>
           {/* LIKE COMMENT */}
