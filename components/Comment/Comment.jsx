@@ -68,7 +68,14 @@ export default function Comment({ commentData }) {
           </IconBtn>
 
           {/* REPLY TO COMMENT */}
-          <IconBtn onClick={() => {}}></IconBtn>
+          <IconBtn
+            onClick={() => {
+              setIsReplying(current => !current);
+            }}
+            isActive={isReplying}
+            Icon={FaReply}
+            aria-label={isReplying ? "Cancel Reply" : "Reply"}
+          />
 
           {/* EDIT YOUR COMMENT */}
           <IconBtn onClick={() => {}}></IconBtn>
