@@ -17,5 +17,30 @@ export default function Comment({ commentData }) {
     toggleLocalCommentLike,
   } = usePost();
 
-  return <div>Comment</div>;
+  return (
+    <>
+      {/* Comment */}
+      <article>
+        <header>
+          <span>user name</span>
+          <span>date</span>
+        </header>
+        <div>message</div>
+        <div>comment form for user to edit this message</div>
+        <footer>Like button, reply button, edit button, delete button</footer>
+      </article>
+
+      {/* CommentForm for replying to this comment */}
+      <div>comment form</div>
+
+      {/* All children comments to this comment */}
+      <>
+        <div>
+          <button>hide replies</button>
+          <div>comments listed</div>
+        </div>
+        <button>Show replies</button>
+      </>
+    </>
+  );
 }
