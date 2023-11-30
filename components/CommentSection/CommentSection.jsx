@@ -21,6 +21,8 @@ export default function CommentSection() {
     );
   }
 
+  console.log("ROOTCOMMENTS: ", rootComments);
+
   return (
     <>
       <h2 className={styles.commentsTitle}>Comments</h2>

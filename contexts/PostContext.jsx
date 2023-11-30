@@ -18,9 +18,9 @@ export function PostProvider({ children }) {
   const [comments, setComments] = useState([]);
   // Set comments from the post fetched
   useEffect(() => {
-    if (post?.comment == null) return;
-    setComments(post.comment);
-  }, [post?.comment]);
+    if (post?.Comments == null) return;
+    setComments(post.Comments);
+  }, [post?.Comments]);
 
   const commentsByParentId = useMemo(() => {
     // create an object that will contain parentId fields, with arrays of it's children
