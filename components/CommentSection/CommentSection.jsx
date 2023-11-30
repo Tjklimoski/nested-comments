@@ -3,6 +3,7 @@ import CommentForm from "../CommentForm/CommentForm";
 import styles from "./commentSection.module.css";
 import { useAsyncFn } from "@/hooks/useAsync";
 import { createComment } from "@/util/comments";
+import CommentList from "../CommentList/CommentList";
 
 export default function CommentSection() {
   const { post, rootComments, createLocalComment } = usePost();
@@ -28,8 +29,12 @@ export default function CommentSection() {
           loading={loading}
           error={error}
           onSubmit={onCreateComment}
-        />{" "}
-        comment list
+        />
+        {rootComments && rootComments.length > 0 && (
+          <div className="mt-4">
+            <CommentList comments={rootComments} />
+          </div>
+        )}
       </section>
     </>
   );
