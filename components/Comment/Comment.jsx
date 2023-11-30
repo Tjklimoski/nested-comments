@@ -1,6 +1,13 @@
 import { usePost } from "@/contexts/PostContext";
 import { useUser } from "@/hooks/useUser";
 import { useState } from "react";
+import { useAsyncFn } from "@/hooks/useAsync";
+import {
+  createComment,
+  updateComment,
+  deleteComment,
+  toggleCommentLike,
+} from "@/util/comments";
 
 // to format the date and time the post was created. undefined use's user's timezone/locale.
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
@@ -23,6 +30,10 @@ export default function Comment({ commentData }) {
   const [isEditing, setIsEditing] = useState(false);
   const [areChildrenHidden, setAreChildrenHidden] = useState(false);
   const childComments = getReplies(id);
+  const createCommentFn = useAsyncFn(createComment);
+  const updateCommentFn = useAsyncFn(updateComment);
+  const deleteCommentFn = useAsyncFn(deleteComment);
+  const toggleCommentLikeFn = useAsyncFn(toggleCommentLike);
 
   return (
     <>
