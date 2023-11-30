@@ -1,5 +1,5 @@
-import { IconBtn } from "./IconBtn";
 import { FaEdit, FaHeart, FaReply, FaTrash, FaRegHeart } from "react-icons/fa";
+import IconBtn from "../IconBtn/IconBtn";
 import { usePost } from "@/contexts/PostContext";
 import { useUser } from "@/hooks/useUser";
 import { useState } from "react";
