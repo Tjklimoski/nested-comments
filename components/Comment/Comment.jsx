@@ -61,6 +61,15 @@ export default function Comment({ commentData }) {
       });
   }
 
+  function onCommentReply(message) {
+    return createCommentFn
+      .execute({ postId: post.id, message, parentId: id })
+      .then(comment => {
+        setIsReplying(false);
+        createLocalComment(comment);
+      });
+  }
+
   return (
     <>
       {/* Comment */}
@@ -127,7 +136,16 @@ export default function Comment({ commentData }) {
       </article>
 
       {/* CommentForm for replying to this comment */}
-      <div>comment form</div>
+      {isReplying && (
+        <div className="mt-1 ml-6">
+          <CommentForm
+            autoFocus
+            onSubmit={onCommentReply}
+            loading={createCommentFn.loading}
+            error={createCommentFn.error}
+          />
+        </div>
+      )}
 
       {/* All children comments to this comment */}
       <>
