@@ -37,6 +37,13 @@ export default function Comment({ commentData }) {
   const deleteCommentFn = useAsyncFn(deleteComment);
   const toggleCommentLikeFn = useAsyncFn(toggleCommentLike);
 
+  function onToggleCommentLike() {
+    // addLike is returned by the API request with true of false depending on the result
+    return toggleCommentLikeFn
+      .execute({ commentId: id, postId: post.id })
+      .then(({ addLike }) => toggleLocalCommentLike(id, addLike));
+  }
+
   return (
     <>
       {/* Comment */}
@@ -47,12 +54,12 @@ export default function Comment({ commentData }) {
         </header>
 
         <div>{message}</div>
-        <div>comment form for user to edit this message</div>
+        <div>commentForm for user to edit this message</div>
 
         <footer>
           {/* LIKE COMMENT */}
           <IconBtn
-            onClick={() => {}}
+            onClick={onToggleCommentLike}
             disabled={toggleCommentLikeFn.loading}
             Icon={likedByMe ? FaHeart : FaRegHeart}
             aria-label={likedByMe ? "Unlike" : "Like"}
