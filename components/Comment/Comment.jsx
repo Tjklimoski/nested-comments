@@ -12,6 +12,7 @@ import {
 } from "@/util/comments";
 import styles from "./comment.module.css";
 import CommentForm from "../CommentForm/CommentForm";
+import NestedComments from "../NestedComments/NestedComments";
 
 // to format the date and time the post was created. undefined use's user's timezone/locale.
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
@@ -148,13 +149,7 @@ export default function Comment({ commentData }) {
       )}
 
       {/* All children comments to this comment */}
-      <>
-        <section>
-          <button>hide replies</button>
-          <div>comments listed</div>
-        </section>
-        <button>Show replies</button>
-      </>
+      <NestedComments />
     </>
   );
 }
