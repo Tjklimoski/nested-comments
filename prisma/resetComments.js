@@ -5,14 +5,14 @@ export default async function resetComments() {
   await prisma.comment.deleteMany();
 
   // Get the two user accounts so comments can be assigned to their ids
-  const demo = await prisma.user.findFist({ where: { name: "Demo User" } });
-  const example = await prisma.user.findFist({
+  const demo = await prisma.user.findFirst({ where: { name: "Demo User" } });
+  const example = await prisma.user.findFirst({
     where: { name: "Example User" },
   });
 
   // Get the two posts so comments can be assigned to their ids
-  const post1 = await prisma.post.findFirst({ where: { name: "Post 1" } });
-  const post2 = await prisma.post.findFirst({ where: { name: "Post 2" } });
+  const post1 = await prisma.post.findFirst({ where: { title: "Post 1" } });
+  const post2 = await prisma.post.findFirst({ where: { title: "Post 2" } });
 
   const comment1 = await prisma.comment.create({
     data: {
@@ -93,5 +93,3 @@ export default async function resetComments() {
     },
   });
 }
-
-resetComments();
