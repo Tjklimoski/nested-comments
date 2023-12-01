@@ -1,13 +1,26 @@
 import React from "react";
+import CommentList from "../CommentList/CommentList";
 
-export default function NestedComments({ comments, hidden, toggleHidden }) {
+export default function NestedComments({ comments, hidden, setHidden }) {
+  function hideReplies() {
+    setHidden(true);
+  }
+
+  function showReplies() {
+    setHidden(false);
+  }
+
   return (
     <>
-      <section>
-        <button>hide replies</button>
-        <div>comments listed</div>
-      </section>
-      <button>Show replies</button>
+      {!hidden && (
+        <section>
+          <button onClick={hideReplies}>hide replies</button>
+          <div>
+            <CommentList comments={comments} />
+          </div>
+        </section>
+      )}
+      {hidden && <button onClick={showReplies}>Show replies</button>}
     </>
   );
 }

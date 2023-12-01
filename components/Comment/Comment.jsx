@@ -153,7 +153,7 @@ export default function Comment({ commentData }) {
         <NestedComments
           comments={childComments}
           hidden={areChildrenHidden}
-          toggleHidden={setAreChildrenHidden}
+          setHidden={setAreChildrenHidden}
         />
       )}
     </>
