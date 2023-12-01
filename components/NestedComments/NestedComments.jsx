@@ -20,7 +20,11 @@ export default function NestedComments({ comments, hidden, setHidden }) {
           </div>
         </section>
       )}
-      {hidden && <button onClick={showReplies}>Show replies</button>}
+      {hidden && (
+        <button className="btn mt-1" onClick={showReplies}>
+          Show replies
+        </button>
+      )}
     </>
   );
 }
