@@ -1,0 +1,38 @@
+.nestedCommentsStack {
+  display: flex;
+}
+
+.nestedComments {
+  padding-left: 0.5rem;
+  flex-grow: 1;
+}
+
+.collapseLine {
+  border: none;
+  background: none;
+  padding: 0;
+  /* width must be an odd number to center middle px */
+  width: 15px;
+  margin-top: 0.5rem;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  /* transform to set center of button on the edge of the commentSection container */
+  transform: translateX(-50%);
+}
+
+.collapseLine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: var(--secondary);
+  transition: background-color 100ms ease-in-out;
+}
+
+.collapseLine:hover::before,
+.collapseLine:focus-visible::before {
+  background-color: var(--primary);
+}
