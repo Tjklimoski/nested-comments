@@ -149,7 +149,13 @@ export default function Comment({ commentData }) {
       )}
 
       {/* All children comments to this comment */}
-      {childComments && <NestedComments />}
+      {childComments && (
+        <NestedComments
+          comments={childComments}
+          hidden={areChildrenHidden}
+          toggleHidden={setAreChildrenHidden}
+        />
+      )}
     </>
   );
 }
