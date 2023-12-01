@@ -149,7 +149,7 @@ export default function Comment({ commentData }) {
       )}
 
       {/* All children comments to this comment */}
-      <NestedComments />
+      {childComments && <NestedComments />}
     </>
   );
 }
