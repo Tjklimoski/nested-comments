@@ -26,14 +26,18 @@ export async function POST(req, { params }) {
       throw new Error("Message is required");
     if (!userId) throw new Error("No UserId");
 
-    const comment = await prisma.comment.create({
-      data: {
-        message,
-        userId,
-        parentId,
-        postId,
-      },
-    });
+    const comment = await prisma.comment
+      .create({
+        data: {
+          message,
+          userId,
+          parentId,
+          postId,
+        },
+        // To return the user data when creating local comment in post context
+        select: COMMENT_SELECT_FIELDS,
+      })
+      .then(comment => ({ ...comment, likeCount: 0, likedByMe: false }));
 
     return res.json(comment);
   } catch (err) {
