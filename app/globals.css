@@ -6,6 +6,7 @@
 
 :root {
   --error: hsl(0, 100%, 67%);
+  --success: hsl(167, 67%, 52%);
   --primary: hsl(235, 100%, 60%);
   --primary_focus: hsl(235, 100%, 67%);
   --secondary: hsl(235, 50%, 74%);
