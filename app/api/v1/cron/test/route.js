@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-export function GET(req) {
+export function GET(request) {
   console.log("/api/v1/cron/test RAN");
   return NextResponse.json(
     {
