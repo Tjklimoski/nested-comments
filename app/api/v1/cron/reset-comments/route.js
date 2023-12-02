@@ -11,7 +11,10 @@ export async function GET(req) {
 }
 
 async function resetComments() {
-  await prisma.comment.deleteMany();
+  console.log("IN RESETCOMMENTS FUNC");
+  const deleteManyResults = await prisma.comment.deleteMany();
+
+  console.log("delete many results: ", deleteManyResults);
 
   // Get the two user accounts so comments can be assigned to their ids
   const demo = await prisma.user.findFirst({ where: { name: "Demo User" } });
@@ -22,6 +25,8 @@ async function resetComments() {
   // Get the two posts so comments can be assigned to their ids
   const post1 = await prisma.post.findFirst({ where: { title: "Post 1" } });
   const post2 = await prisma.post.findFirst({ where: { title: "Post 2" } });
+
+  console.log("post1: ", post1);
 
   const comment1 = await prisma.comment.create({
     data: {
