@@ -1,7 +1,7 @@
 import { NextResponse as res } from "next/server";
 import prisma from "@/prisma/client";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 export async function GET(req) {
   try {
