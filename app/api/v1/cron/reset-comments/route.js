@@ -5,6 +5,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET(req) {
   try {
+    console.log("reset-comments CALLED");
     await resetComments();
     return new res("Comments reset", { status: 200 });
   } catch (err) {
