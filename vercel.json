@@ -3,6 +3,10 @@
     {
       "path": "/api/v1/cron/reset-comments",
       "schedule": "5 15 * * *"
+    },
+    {
+      "path": "/api/v1/cron/test",
+      "schedule": "25 15 * * *"
     }
   ]
 }
