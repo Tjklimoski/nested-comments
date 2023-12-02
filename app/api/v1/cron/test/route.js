@@ -1,5 +1,7 @@
 import { NextResponse as Response } from "next/server";
 
+export const runtime = "edge";
+
 export async function GET() {
   const result = await fetch(
     "http://worldtimeapi.org/api/timezone/America/Chicago",
