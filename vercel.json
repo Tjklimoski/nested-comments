@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/api/v1/cron/reset-comments",
-      "schedule": "5 15 * * *"
+      "schedule": "0 5 * * *"
     },
     {
       "path": "/api/v1/cron/test",
