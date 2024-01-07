@@ -2,7 +2,7 @@
 
 Developed by TJ Klimoski.
 
-[Live demo](https://nested-comments-tjk.vercel.app/)
+[Live demo](https://nested-comments-tjk.vercel.app/)  
 [Github](https://github.com/Tjklimoski/nested-comments)
 
 ## About Nested Comments
