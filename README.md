@@ -16,7 +16,7 @@ A demonstration of a nested commenting system that includes the ability to edit,
 
 ## Technologies
 
-Spotify player was built with:
+Nested Comments was built with:
 
 - React (Next framework)
 - RESTful api backend
