@@ -1,0 +1,10 @@
+.backBtn {
+  border-radius: 10000px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.backArrow {
+  margin-inline-end: 1ch;
+}
