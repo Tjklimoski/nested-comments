@@ -50,7 +50,9 @@ button {
   color: white;
   border-radius: 0.5em;
   font-size: 0.75em;
+  font-weight: bold;
   cursor: pointer;
+  transition: all 100ms ease-in-out;
 }
 
 .btn[disabled] {
@@ -61,6 +63,7 @@ button {
 .btn:hover,
 .btn:focus-visible {
   --color: hsl(var(--hue), 100%, 74%);
+  color: black;
 }
 
 .container {
