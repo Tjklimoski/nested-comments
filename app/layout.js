@@ -1,6 +1,7 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { CookiesProvider } from "next-client-cookies/server";
+import Nav from "@/components/Nav/Nav";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -14,7 +15,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={montserrat.className}>
         <main className="container">
-          <CookiesProvider>{children}</CookiesProvider>
+          <CookiesProvider>
+            <Nav />
+            {children}
+          </CookiesProvider>
         </main>
       </body>
     </html>
